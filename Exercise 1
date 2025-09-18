@@ -1,0 +1,13 @@
+//1)to find sum of temperature 
+initial begin
+    int temp_readings[10]; 
+    int total_temperature = 0;
+    temp_readings = '{30, 28, 27, 29, 31, 30, 32, 33, 29, 30};
+    foreach (temp_readings[i]) begin
+      total_temperature = total_temperature + temp_readings[i];
+    end
+    $display("Time=%0t ns => Total Temperature = %0d", $time, total_temperature);
+end
+endmodule
+//output
+//Time=0 ns => Total Temperature = 299
