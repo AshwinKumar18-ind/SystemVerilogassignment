@@ -1,0 +1,18 @@
+//to count even id's
+module count_even_txn;
+  initial begin
+    int txn_ids[20];
+    int i;
+    int even_count = 0;
+    txn_ids = '{101,102,103,104,105,106,107,108,109,110,
+               201,202,203,204,205,206,305,306,307,308};
+    foreach (txn_ids[i]) begin
+      if (txn_ids[i] % 2 == 0) begin
+        even_count = even_count + 1;
+      end
+    end
+    $display("Even IDs Count: %0d", even_count);
+  end
+endmodule
+// output 
+//Even IDs Count:10
