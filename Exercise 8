@@ -1,0 +1,17 @@
+//to swap adjacent values
+module swap_adjacent_lanes;
+  initial begin
+    int lane_values[8] = '{1,2,3,4,5,6,7,8};
+    int i, temp;
+    for (i = 0; i < 8; i = i + 2) begin
+      if (i+1 < 8) begin
+        temp = lane_values[i];
+        lane_values[i] = lane_values[i+1];
+        lane_values[i+1] = temp;
+      end
+    end
+    $display("Swapped Lanes: %p", lane_values);
+  end
+endmodule
+//output 
+//Swapped Lanes: '{2, 1, 4, 3, 6, 5, 8, 7}
