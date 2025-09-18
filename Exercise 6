@@ -1,0 +1,14 @@
+//to replace negative values with zero
+module sanitize_ctrl_codes;
+  initial begin
+    int ctrl_codes[7] = '{-1,0,12,-5,100,-9,7};
+    int i;
+    foreach (ctrl_codes[i]) begin
+      if (ctrl_codes[i] < 0)
+        ctrl_codes[i] = 0;
+    end
+    $display("Sanitized Codes: %p", ctrl_codes);
+  end
+endmodule
+//output 
+//Sanitized Codes: '{0, 0, 12, 0, 100, 0, 7}
