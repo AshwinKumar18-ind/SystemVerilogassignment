@@ -1,0 +1,20 @@
+//to find the maximum error and at which index
+module find_max_error;
+  parameter NUM_SUBSYSTEMS = 15;
+  int error_count [NUM_SUBSYSTEMS] = '{2,5,3,6,1,0,4,5,10,2,1,0,2,3,4};
+  int max_errors;
+  int max_index;
+  initial begin
+    max_errors = error_count[0];
+    max_index = 0;
+    for (int i = 1; i < $size(error_count); i = i + 1) begin
+      if (error_count[i] > max_errors) begin
+        max_errors = error_count[i];
+        max_index = i;
+      end
+    end
+    $display("Max Errors: %0d found at Subsystem Index %0d", max_errors, max_index);
+    end
+endmodule
+//output
+//Max Errors: 10 found at Subsystem Index 8
