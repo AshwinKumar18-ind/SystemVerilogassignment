@@ -1,0 +1,35 @@
+//to check ascending order or not
+module timestamp_check;
+ function bit is_sorted(input int arr[]);
+    int i;
+    for (i = 0; i < arr.size() - 1; i = i + 1) begin
+      if (arr[i] > arr[i+1]) begin
+        is_sorted = 0;
+        return;
+      end
+    end
+    is_sorted = 1;
+  endfunction
+  initial begin
+    int pkt_timestamps[12];
+    pkt_timestamps[0] = 10;
+    pkt_timestamps[1] = 12;
+    pkt_timestamps[2] = 12;
+    pkt_timestamps[3] = 15;
+    pkt_timestamps[4] = 20;
+    pkt_timestamps[5] = 22;
+    pkt_timestamps[6] = 22;
+    pkt_timestamps[7] = 25;
+    pkt_timestamps[8] = 30;
+    pkt_timestamps[9] = 31;
+    pkt_timestamps[10] = 33;
+    pkt_timestamps[11] = 35;
+
+    if (is_sorted(pkt_timestamps))
+      $display("Sorted: TRUE");
+    else
+      $display("Sorted: FALSE");
+  end
+endmodule
+// output
+//Sorted: TRUE
