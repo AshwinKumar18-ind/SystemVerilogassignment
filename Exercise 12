@@ -1,0 +1,28 @@
+//to increase queue size due to queue growing
+module dma_descriptor_queue;
+  initial begin
+    int desc_queue[$]; 
+    int id;
+    for (id = 1; id <= 15; id = id + 1) begin
+      desc_queue.push_back(id);  // Add new ID to queue
+      $display("Enqueue %0d — Queue size: %0d", id, desc_queue.size());
+    end
+  end
+endmodule
+// output
+//  
+# KERNEL: Enqueue 1 â€” Queue size: 1
+# KERNEL: Enqueue 2 â€” Queue size: 2
+# KERNEL: Enqueue 3 â€” Queue size: 3
+# KERNEL: Enqueue 4 â€” Queue size: 4
+# KERNEL: Enqueue 5 â€” Queue size: 5
+# KERNEL: Enqueue 6 â€” Queue size: 6
+# KERNEL: Enqueue 7 â€” Queue size: 7
+# KERNEL: Enqueue 8 â€” Queue size: 8
+# KERNEL: Enqueue 9 â€” Queue size: 9
+# KERNEL: Enqueue 10 â€” Queue size: 10
+# KERNEL: Enqueue 11 â€” Queue size: 11
+# KERNEL: Enqueue 12 â€” Queue size: 12
+# KERNEL: Enqueue 13 â€” Queue size: 13
+# KERNEL: Enqueue 14 â€” Queue size: 14
+# KERNEL: Enqueue 15 â€” Queue size: 15
