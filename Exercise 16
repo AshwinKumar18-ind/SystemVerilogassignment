@@ -1,0 +1,16 @@
+//to remove particular elements of a queue
+module remove_cancelled_job;
+  initial begin
+    int job_queue[$] = '{201, 202, 203, 202, 204}; 
+    int cancel_id = 202;
+    int updated_queue[$]; 
+    int i;
+    foreach (job_queue[i]) begin
+      if (job_queue[i] != cancel_id)
+        updated_queue.push_back(job_queue[i]);
+    end
+    $display("Updated Queue = %p", updated_queue);
+  end
+endmodule
+//output 
+// Updated Queue = '{201, 203, 204}
