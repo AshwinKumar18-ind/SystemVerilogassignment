@@ -1,0 +1,19 @@
+//enque and deque operations
+module queue_fifo_test;
+  initial begin
+    int packet_queue[$];
+    int dequeued_packet;
+    packet_queue.push_back(5);
+    $display("After enqueue 5: %p", packet_queue); 
+    packet_queue.push_back(10);
+    $display("After enqueue 10: %p", packet_queue); 
+    dequeued_packet = packet_queue.pop_front();
+    $display("Dequeued Packet: %0d", dequeued_packet); 
+    $display("Queue after dequeue: %p", packet_queue); 
+  end
+endmodule
+// output
+//After enqueue 5: '{5}
+# KERNEL: After enqueue 10: '{5, 10}
+# KERNEL: Dequeued Packet: 5
+# KERNEL: Queue after dequeue: '{10}
