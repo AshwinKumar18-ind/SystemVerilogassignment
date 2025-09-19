@@ -1,0 +1,15 @@
+// to find sum of elements (payloads) of a queue
+module total_payload_calc;
+  initial begin
+    int payload_sizes[$] = '{120, 80, 200, 150, 50}; 
+    int i;
+    foreach (payload_sizes[i]) begin
+      total = total + payload_sizes[i];
+    end
+    $display("Total Payload = %0d bytes", total);
+    $display("Number of Payloads = %0d", $size(payload_sizes));
+  end
+endmodule
+// output 
+//KERNEL: Total Payload = 600 bytes
+# KERNEL: Number of Payloads = 5
