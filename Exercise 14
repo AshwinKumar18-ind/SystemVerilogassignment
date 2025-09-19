@@ -1,0 +1,15 @@
+// to find maximum value in a given queue 
+module max_latency_finder;
+  initial begin
+    int latencies[$] = '{12, 35, 42, 18, 29, 50, 31}; 
+    int max_latency = latencies[0]; 
+    int i;
+    foreach (latencies[i]) begin
+      if (latencies[i] > max_latency)
+        max_latency = latencies[i];
+    end
+    $display("Max Latency = %0d cycles", max_latency);
+  end
+endmodule
+// output 
+//Max Latency = 50 cycles
