@@ -1,0 +1,12 @@
+// to insert an element in a queue using queue.insert
+module insert_critical_job;
+  initial begin
+    int queue[$] = '{101, 102, 103, 104, 105}; // Original queue
+    int critical_id = 999;
+    int insert_index = 2;
+    queue.insert(insert_index, critical_id);
+    $display("Updated Queue = %p", queue);
+  end
+endmodule
+// output 
+//KERNEL: Updated Queue = '{101, 102, 999, 103, 104, 105}
