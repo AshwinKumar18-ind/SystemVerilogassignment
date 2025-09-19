@@ -1,0 +1,17 @@
+//using constraints-summing values at even index and also greater than 100(threshold)
+module selective_index_summation;
+  initial begin
+    int pixels[$] = '{90,50,110,30,130,90,140,70,200,10,255,60};
+    int threshold = 100;
+    int sum = 0;
+    int i;
+    for (i = 0; i < pixels.size(); i = i + 1) begin
+      if ((i % 2 == 0) && (pixels[i] > threshold)) begin
+        sum = sum + pixels[i];
+      end
+    end
+    $display("Sum (Even indices >%0d) = %0d", threshold, sum);
+  end
+endmodule
+//output 
+//KERNEL: Sum (Even indices >100) = 835
