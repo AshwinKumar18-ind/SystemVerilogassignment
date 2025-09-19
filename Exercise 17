@@ -1,0 +1,14 @@
+//to print the elements one by one
+module log_packet_ids;
+  initial begin
+    int packet_log[$] = '{501, 502, 503}; 
+    int i;
+    foreach (packet_log[i]) begin
+      $display("Packet: %0d", packet_log[i]);
+    end
+  end
+endmodule
+//output 
+//# KERNEL: Packet: 501
+  # KERNEL: Packet: 502
+  # KERNEL: Packet: 503
