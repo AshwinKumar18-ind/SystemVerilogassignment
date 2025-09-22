@@ -1,0 +1,20 @@
+//to reverse the elements of a queue
+module tb_reverse_queue;
+  int event_log[$] = '{1, 2, 3, 4};
+  int reversed_log[$];
+  int i;
+  initial begin
+    while (event_log.size() > 0) begin
+      reversed_log.push_back(event_log.pop_back());
+    end
+    $write("Reversed Log = {");
+    for (i = 0; i < reversed_log.size(); i = i + 1) begin
+      $write("%0d", reversed_log[i]);
+      if (i != reversed_log.size()-1) $write(", ");
+    end
+    $write("}\n");
+    $finish;
+  end
+endmodule
+// output 
+//Reversed Log = {4, 3, 2, 1}
