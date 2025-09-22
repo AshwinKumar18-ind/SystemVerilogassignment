@@ -1,0 +1,12 @@
+//to copy elements from one queue to another
+module tb_queue_clone;
+  int queue1[$] = '{11, 12, 13};
+  int queue2[$];
+  initial begin
+    queue2 = queue1;
+    $display("Queue2 = {%0d, %0d, %0d}", queue2[0], queue2[1], queue2[2]);
+    $finish;
+  end
+endmodule
+//output
+//Queue2 = {11, 12, 13}
