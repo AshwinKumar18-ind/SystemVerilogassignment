@@ -1,0 +1,17 @@
+//checking fifo order during enque/deque operations
+module tb_fifo_simple;
+  int queue[$];
+  initial begin
+    queue.push_back(1);
+    queue.push_back(2);
+    queue.push_back(3);
+    $display("Dequeued: %0d", queue.pop_front());
+    $display("Dequeued: %0d", queue.pop_front());
+    $display("Dequeued: %0d", queue.pop_front());
+    $finish;
+  end
+endmodule
+//output 
+//Dequeued: 1
+//Dequeued: 2
+//Dequeued: 3
