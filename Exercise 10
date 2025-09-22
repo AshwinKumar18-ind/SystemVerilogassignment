@@ -1,0 +1,20 @@
+//to take a snapshot of values,modify them and again restore original values 
+module tb_register_snapshot;
+  int original[5] = '{5,7,9,11,13};
+  int backup[5];
+  int i;
+  initial begin
+    for (i = 0; i < 5; i = i + 1)
+      backup[i] = original[i];
+    for (i = 0; i < 5; i = i + 1)
+      original[i] = 0;
+    $display("After modification = {%0d,%0d,%0d,%0d,%0d}", original[0], original[1], original[2], original[3], original[4]);
+    for (i = 0; i < 5; i = i + 1)
+      original[i] = backup[i];
+    $display("Restored = {%0d,%0d,%0d,%0d,%0d}", original[0], original[1], original[2], original[3], original[4]);
+    $finish;
+  end
+endmodule
+//output 
+//After modification = {0,0,0,0,0}
+# KERNEL: Restored = {5,7,9,11,13}
